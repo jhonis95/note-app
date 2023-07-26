@@ -1,7 +1,11 @@
 export default function login(){
     return(
         <>
-            <h1>loggin page</h1>
+            <img src="" alt="" />
+            <h1>welcome to <br />our app</h1>
+            <form action="" method="get">
+                
+            </form>
         </>
     )
 }
