@@ -1,4 +1,10 @@
 :root{
-    --primari-color: black;
+    --primari-color: #D6D9D8;
+    --primari-light-one-color:#FFFFFF;
+    --primari-dark-one-color:#A4ADAA;
+    --primari-dark-two-color:#7D8F89;
+    --primari-dark-tree-color:#586457;
+    --dark:#43463D;
+
     
 }

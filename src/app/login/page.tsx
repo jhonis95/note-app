@@ -1,6 +1,8 @@
 "use client"
-import { TextInput, Button, Group, Box } from '@mantine/core';
+import { TextInput, Button, Group, Box, Title, MantineProvider } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import Image from 'next/image'
+import logo from '../../../public/logo.png'
 
 export default function login(){
     const form=useForm({ //form hook from mantine UI
@@ -16,13 +18,26 @@ export default function login(){
         },
       });
     const henderSubmit=(values: { email: string; termsOfService: boolean; password: string; })=>{
-        console.log(values)
+        fetch('localhost:3001/login',{
+            method: "GET",
+            headers: new Headers(),
+            mode: "cors",
+            body: JSON.stringify(values),
+            cache: "default",
+          }).then((res)=>{})
     }
     return(
-        <>
+        <MantineProvider
+            theme={{
+                colors:{
+                    'primari':['#D6D9D8','#A4ADAA','#7D8F89','#586457'],
+                    'base':['#FFFFFF','#43463D']
+                }
+            }}
+        >
             <Box maw={300} mx="auto" h={500}>
-                <img src="" alt="" />
-                <h1>welcome to <br />our app</h1>
+                <Image src="/logo.png" alt="dev logo" width={500} height={500} />
+                <Title ta="center">welcome to <br />our app</Title>
                 <form action="" method="get" onSubmit={form.onSubmit((value)=>{henderSubmit(value)})}>
                     <TextInput
                         withAsterisk
@@ -41,6 +56,6 @@ export default function login(){
                     </Group>
                 </form>
             </Box>
-        </>
+        </MantineProvider>
     )
 }
